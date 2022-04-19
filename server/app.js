@@ -3,13 +3,17 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const authRouter = require("./routers/auth");
+const realEstateRouter = require("./routers/realEstate");
 const connectDb = require("./db/connect");
-
+const axios = require("axios");
 app.use(cors());
 app.use(express.json());
 
 //*the auth router
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/realEstate", realEstateRouter);
+
+//fetchRalEstate();
 
 const port = process.env.PORT || 4200;
 
