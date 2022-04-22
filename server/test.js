@@ -1,4 +1,4 @@
-require("dotenv").config();
+/* require("dotenv").config();
 const axios = require("axios");
 
 const connectDB = require("./db/connect");
@@ -8,10 +8,10 @@ const property = require("./models/property");
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URI);
-    //await product.deleteMany()
+    await property.deleteMany();
     axios
       .get(
-        "https://bayut.p.rapidapi.com/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=6",
+        "https://bayut.p.rapidapi.com/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=25",
         {
           headers: {
             "X-RapidAPI-Host": "bayut.p.rapidapi.com",
@@ -49,4 +49,4 @@ const start = async () => {
     console.log(error);
   }
 };
-start();
+start(); */
