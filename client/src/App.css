@@ -1,7 +1,10 @@
 .App {
   text-align: center;
+  
 }
-
+*{
+  font-family: 'Roboto', sans-serif;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +38,53 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+
+
+
+/*nav bar*/
+.logo{
+  font-family: 'Norican', cursive;
+}
+
+.link{
+  text-decoration: inherit;
+  color:rgb(33, 37, 41);
+  font-size:26px
+}
+.logo-img{
+  width:42px
+}
+
+/* home page*/
+  
+.heder{
+  width:100%;
+  background-color:rgb(33, 37, 41);
+  height:89.7vh;
+  color:#ffff;
+  overflow: hidden;
+}
+
+.hero{
+  position:relative;
+  
+}
+.image{
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.blob{
+  width:1050px;
+  position:absolute;
+  top:-430px;
+  left:-315px;
+  z-index: 1;
+}
+.hero-text{
+  position:relative;
+  z-index: 3;
 }
