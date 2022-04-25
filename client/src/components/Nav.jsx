@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import "../App.css";
 import { SiHomeassistantcommunitystore } from "react-icons/si";
+import { HiCubeTransparent } from "react-icons/hi";
 
 import logo from "../assets/—Pngtree—house property logo with hand_7271247.png";
 
@@ -32,10 +33,13 @@ const Nav = () => {
           <Offcanvas.Body
             bg="dark"
             variant="dark"
-            className="justify-content-end flex-grow-1 pe-3"
+            className="d-flex flex-column  flex-grow-1 pe-3"
           >
-            <Link to="/" className="link">
+            <Link to="/" className="link p-2">
               <SiHomeassistantcommunitystore /> Home
+            </Link>
+            <Link to="/property" className="link p-2">
+              <HiCubeTransparent /> Property
             </Link>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
