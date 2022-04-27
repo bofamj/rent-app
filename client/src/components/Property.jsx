@@ -11,7 +11,7 @@ const Property = () => {
   //*fetching ret and sale propertiess form the raped api
   const fetchEaleProperty = async () => {
     const forSale = await queryData(
-      `${generalUrl}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=6`
+      `${generalUrl}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=25`
     );
     setForSale(forSale.hits);
   };

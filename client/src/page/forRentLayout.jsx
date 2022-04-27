@@ -8,7 +8,7 @@ import { MdBathtub, MdVerified } from "react-icons/md";
 
 import { generalUrl, queryData } from "../utils/queryApi";
 
-const PropertyLayout = ({ prosel }) => {
+const forRentLayout = ({ prosel }) => {
   const {
     coverPhoto,
     price,
@@ -21,8 +21,6 @@ const PropertyLayout = ({ prosel }) => {
     isVerified,
     externalID,
   } = prosel;
-  //console.log(coverPhoto.url);
-
   return (
     <>
       <Row className=" p-2 ">
@@ -50,4 +48,4 @@ const PropertyLayout = ({ prosel }) => {
   );
 };
 
-export default PropertyLayout;
+export default forRentLayout;

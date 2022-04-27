@@ -1,6 +1,8 @@
 import { Row, Container, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+//   fa-sqft
+
 import "../App.css";
 import house from "../assets/26801-6-house-transparent.png";
 import blob from "../assets/blob-4.svg";
