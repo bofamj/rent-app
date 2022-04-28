@@ -3,26 +3,26 @@ const axios = require("axios");
 
 const connectDB = require("./db/connect");
 
-const property = require("./models/property");
+const ForRent = require("./models/forFrent");
 
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URI);
-    await property.deleteMany();
+    await ForRent.deleteMany();
     axios
       .get(
-        "https://bayut.p.rapidapi.com/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=25",
+        "https://bayut.p.rapidapi.com/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=25",
         {
           headers: {
             "X-RapidAPI-Host": "bayut.p.rapidapi.com",
             "X-RapidAPI-Key":
-              "3cace6a128msh3b60c4110624461p16e8f0jsna4e59d6640d6",
+              "b32d0aeec2msh5375c79ffa37829p134aa0jsn6448278abafb",
           },
         }
       )
       .then(
         ({ data }) => {
-          property.create(
+          ForRent.create(
             data.hits.map((items) => {
               return {
                 price: items.price,
