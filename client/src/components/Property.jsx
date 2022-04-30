@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { generalUrl, queryData } from "../utils/queryApi";
 import PropertyLayout from "./../page/PropertyLayout";
+import { Link } from "react-router-dom";
 
 const Property = () => {
   const [forSale, setForSale] = useState([]);
@@ -27,7 +28,9 @@ const Property = () => {
       <Container lg={3} className="mt-2 d-flex flex-wrap">
         {" "}
         {forSale.map((prosel) => (
-          <PropertyLayout key={prosel.id} prosel={prosel} />
+          <Link className="red-mor-link" to={`/${prosel.externalID}`}>
+            <PropertyLayout key={prosel.id} prosel={prosel} />
+          </Link>
         ))}{" "}
       </Container>
     </>
