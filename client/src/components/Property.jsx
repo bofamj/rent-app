@@ -10,22 +10,27 @@ const Property = () => {
 
   //*fetching ret and sale propertiess form the raped api
   const fetchEaleProperty = async () => {
-    const forSale = await queryData(
-      `${generalUrl}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=25`
-    );
-    setForSale(forSale.hits);
+    const forSale = await queryData(`${generalUrl}/sale`);
+    setForSale(forSale);
   };
-
+  console.log(forSale);
   useEffect(() => {
     fetchEaleProperty();
   }, []);
 
   return (
-    <Container lg={3} className="mt-2 d-flex flex-wrap">
-      {forSale.map((prosel) => (
-        <PropertyLayout key={prosel.id} prosel={prosel} />
-      ))}
-    </Container>
+    <>
+      {" "}
+      <h1 className="m-2 d-flex justify-content-center page-text">
+        PROPERTY FOR <span className="page-text-span ">SALE</span>
+      </h1>
+      <Container lg={3} className="mt-2 d-flex flex-wrap">
+        {" "}
+        {forSale.map((prosel) => (
+          <PropertyLayout key={prosel.id} prosel={prosel} />
+        ))}{" "}
+      </Container>
+    </>
   );
 };
 

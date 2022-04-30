@@ -54,10 +54,15 @@
   color:rgb(33, 37, 41);
   font-size:26px
 }
+.link:hover{
+  color:rgb(106, 109, 112);
+}
 .logo-img{
   width:42px
 }
-
+.icon{
+  color:rgb(205, 190, 120)
+}
 /* home page*/
   
 .heder{
@@ -65,10 +70,12 @@
   background-color:rgb(33, 37, 41);
   height:89.7vh;
   color:#ffff;
+  
+}
+.hero{
   overflow: hidden;
 }
-
-.hero{
+.hero-img-container{
   position:relative;
   
 }
@@ -81,10 +88,38 @@
   width:1050px;
   position:absolute;
   top:-430px;
-  left:-315px;
+  left:-327px;
   z-index: 1;
 }
 .hero-text{
   position:relative;
   z-index: 3;
+}
+.sale-hero-cont{
+  margin-top:150px;
+  width: 100%;
+  
+}
+.btn-cont{
+  color:black
+}
+.for-rent-cont{
+  background-color:rgb(205, 190, 120) ;
+  width:100%;
+  margin-bottom: 150px;
+  color:white
+}
+/*for rent and for sale page*/
+.page-text{
+  font-family: 'Norican', cursive;
+}
+.page-text-span{
+  font-family: 'Norican', cursive;
+  color:rgb(205, 190, 120)
+}
+
+
+.red-mor-link{
+  text-decoration: inherit;
+  color:rgb(33, 37, 41);
 }

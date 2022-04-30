@@ -4,6 +4,7 @@ import Home from "./page/Home";
 import Nav from "./components/Nav";
 import Property from "./components/Property";
 import ForRent from "./components/ForRent";
+import DetailsForRent from "./page/DetailsForRent";
 
 function App() {
   return (
@@ -11,8 +12,9 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/property" exact element={<Property />} />
+        <Route path="/property-sale" exact element={<Property />} />
         <Route path="/property-rent" exact element={<ForRent />} />
+        <Route path="/:id" exact element={<DetailsForRent />} />
       </Routes>
     </Router>
   );

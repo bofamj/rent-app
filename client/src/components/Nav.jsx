@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import "../App.css";
 import { SiHomeassistantcommunitystore } from "react-icons/si";
 import { HiCubeTransparent } from "react-icons/hi";
+import { FcSalesPerformance } from "react-icons/fc";
 
 import logo from "../assets/—Pngtree—house property logo with hand_7271247.png";
 
 const Nav = () => {
   return (
-    <Navbar bg="dark" variant="dark" expand={false}>
+    <Navbar bg="dark" variant="dark" expand={false} className="sticky-top">
       <Container>
         <Navbar.Brand className="d-flex align-items-center">
           <img src={logo} className="logo-img me-2" />
@@ -36,10 +37,13 @@ const Nav = () => {
             className="d-flex flex-column  flex-grow-1 pe-3"
           >
             <Link to="/" className="link p-2">
-              <SiHomeassistantcommunitystore /> Home
+              <SiHomeassistantcommunitystore className="icon" /> Home
             </Link>
-            <Link to="/property" className="link p-2">
-              <HiCubeTransparent /> Property
+            <Link to="/property-sale" className="link p-2">
+              <FcSalesPerformance className="icon" /> Property For Sale
+            </Link>
+            <Link to="/property-rent" className="link p-2">
+              <HiCubeTransparent className="icon" /> Property For Rent
             </Link>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
