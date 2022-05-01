@@ -39,7 +39,7 @@ const DetailsForRent = () => {
 
   console.log(photos);
   return (
-    <Container>
+    <Container className="mt-5 h-75 ">
       <Row>
         <Col>{photos && <ImageSrollbar data={photos} />}</Col>
       </Row>
