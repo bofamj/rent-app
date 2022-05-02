@@ -123,3 +123,8 @@
   text-decoration: inherit;
   color:rgb(33, 37, 41);
 }
+
+/*description page*/
+.description{
+  line-height: 27px;
+}

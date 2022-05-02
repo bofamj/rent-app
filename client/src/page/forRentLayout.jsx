@@ -25,7 +25,12 @@ const forRentLayout = ({ prosel }) => {
     <>
       <Row className=" p-2 ">
         <Col className="mt-2">
-          <img src={coverPhoto.url} width={350} height={260} />
+          <img
+            className="rounded"
+            src={coverPhoto.url}
+            width={350}
+            height={260}
+          />
           <div className="d-flex justify-content-between align-items-center  ">
             <h5 className=" p-1 d-flex align-items-center ">
               {isVerified && <MdVerified className=" text-success" />}

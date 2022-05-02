@@ -27,22 +27,27 @@ const PropertyLayout = ({ prosel }) => {
     <>
       <Row className=" p-2 ">
         <Col className="mt-2">
-          <img src={coverPhoto.url} width={350} height={260} />
-          <dev className="d-flex justify-content-between align-items-center  ">
+          <img
+            src={coverPhoto.url}
+            width={350}
+            height={260}
+            className="rounded"
+          />
+          <div className="d-flex justify-content-between align-items-center  ">
             <h5 className=" p-1 d-flex align-items-center ">
               {isVerified && <MdVerified className=" text-success" />}
               USD {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
               {rentFrequency && `/${rentFrequency}`}
             </h5>
             <img src={agency.logo.url} width={20} height={20} />
-          </dev>
-          <dev className="d-flex justify-content-between align-items-center pe-2 ">
+          </div>
+          <div className="d-flex justify-content-between align-items-center pe-2 ">
             <p className=" ps-2 text-info">
               {rooms} <RiHotelBedLine className="text-info ms-1" /> |{baths}{" "}
               <MdBathtub className="text-info ms-2" /> | {Math.floor(area)} sqft{" "}
               <RiRuler2Line className="text-info ms-2" />
             </p>
-          </dev>
+          </div>
           <p className=" ps-2">{title.substring(0, 30) + "..."}</p>
         </Col>
       </Row>
