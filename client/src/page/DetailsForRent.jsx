@@ -3,14 +3,34 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { withScriptjs, withGoogleMap } from "@react-google-maps/api";
+
+import GoogleMaps from "../utils/GoogleMaps";
 
 import { generaIdlUrl, queryIdData } from "../utils/queryApi";
 import ImageSrollbar from "../components/ScrollingMenu";
 import { RiHotelBedLine, RiRuler2Line } from "react-icons/ri";
 import { MdBathtub, MdVerified } from "react-icons/md";
+import Loading from "../components/Loading";
 
 const DetailsForRent = () => {
+  const { id } = useParams();
   const [details, setDetails] = useState([]);
+  const [isLoading, serIsLoading] = useState(false);
+  const fetchPropertyDetails = async () => {
+    serIsLoading(true);
+    const details = await queryIdData(
+      `${generaIdlUrl}/properties/detail?externalID=${id}`
+    );
+    setDetails(details);
+    serIsLoading(false);
+  };
+
+  useEffect(() => {
+    serIsLoading(false);
+    fetchPropertyDetails();
+  }, []);
+  //console.log(details);
   const {
     price,
     rentFrequency,
@@ -26,20 +46,16 @@ const DetailsForRent = () => {
     furnishingStatus,
     amenities,
     photos,
+    geography,
   } = details;
-  const { id } = useParams();
-  const fetchPropertyDetails = async () => {
-    const details = await queryIdData(
-      `${generaIdlUrl}/properties/detail?externalID=${id}`
-    );
-    setDetails(details);
-  };
-  //console.log(photos);
-  useEffect(() => {
-    fetchPropertyDetails();
-  }, []);
 
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  //console.log({ ...geography });
   //console.log(amenities);
+
   return (
     <Container className="mt-5 w-75 mb-5">
       <Row>
@@ -52,7 +68,7 @@ const DetailsForRent = () => {
               {price /* .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") */}
               {rentFrequency && `/${rentFrequency}`}
             </h5>
-            {/* {agency.logo && (
+            {/* {details.agency.logo && (
               <img
                 src={agency.logo.url}
                 width={50}
@@ -92,10 +108,14 @@ const DetailsForRent = () => {
           <div className="d-flex justify-content-between align-items-start pe-2  w-100 ">
             <h4 className="text-dark ">Amenities:</h4>
             <div className="d-flex justify-content-start ms-2 mt-1  w-100 flex-wrap">
-              {amenities.map((amenitie) => (
-                <h5 className="pe-5  text-secondary">{amenitie.text}</h5>
-              ))}
+              {amenities &&
+                amenities.map((amenitie) => (
+                  <h5 className="pe-5  text-secondary">{amenitie.text}</h5>
+                ))}
             </div>
+          </div>
+          <div className="w-100">
+            <GoogleMaps {...geography} />
           </div>
         </Col>
       </Row>
