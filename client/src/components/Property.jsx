@@ -27,7 +27,7 @@ const Property = () => {
         PROPERTY FOR <span className="page-text-span ">SALE</span>
       </h1>
       <Container>
-        <Serch />
+        <Serch forSale={forSale} forSaleSort={setForSale} />
       </Container>
       <Container lg={3} className="mt-2 d-flex flex-wrap">
         {" "}
