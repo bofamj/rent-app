@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { generalUrl, queryData } from "../utils/queryApi";
 import PropertyLayout from "./../page/PropertyLayout";
 import { Link } from "react-router-dom";
+import Serch from "./Serch";
 
 const Property = () => {
   const [forSale, setForSale] = useState([]);
@@ -25,6 +26,9 @@ const Property = () => {
       <h1 className="m-2 d-flex justify-content-center page-text">
         PROPERTY FOR <span className="page-text-span ">SALE</span>
       </h1>
+      <Container>
+        <Serch />
+      </Container>
       <Container lg={3} className="mt-2 d-flex flex-wrap">
         {" "}
         {forSale.map((prosel) => (

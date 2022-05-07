@@ -1,12 +1,6 @@
 import React from "react";
-//import { compose, withProps } from "recompose";
-import {
-  GoogleMap,
-  /* useJsApiLoader,
-  LoadScript, */
-  Marker,
-  useLoadScript,
-} from "@react-google-maps/api";
+
+import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 
 const containerStyle = {
   width: "100%",
@@ -15,8 +9,8 @@ const containerStyle = {
 
 const GoogleMaps = ({ lat, lng }) => {
   const center = {
-    lat: +lat,
-    lng: +lng,
+    lat: 25.276987,
+    lng: 55.296249,
   };
 
   const { isLoaded, loadError } = useLoadScript({
@@ -34,10 +28,9 @@ const GoogleMaps = ({ lat, lng }) => {
       }
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={10}
+      zoom={9}
     >
-      {<Marker position={{ lat: lat, lng: lng }} />}
-      <></>
+      <Marker position={{ lat: +lat, lng: +lng }} />
     </GoogleMap>
   );
 };
