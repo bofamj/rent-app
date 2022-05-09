@@ -1,25 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, option, Container, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { filterData } from "../utils/data";
 
-const Serch = ({ forSale, forSaleSort }) => {
+const Serch = ({ forSale, forSaleSort, test }) => {
   const [minPrice, setMinPrice] = useState(filterData[0].items);
   const [maxPrice, setMaxPrice] = useState(filterData[1].items);
   const [sort, setSort] = useState(filterData[2].items);
   const [roomsMin, setRoomsMin] = useState(filterData[3].items);
   const [bathsMin, setBathsMin] = useState(filterData[4].items);
+  // const [test, setTest] = useState([]);
   const [search, setSearch] = useState("");
-  console.log(minPrice);
-
+  //setTest(forSale)
   const handelSubmit = () => {
     console.log(search);
 
-    const sort = forSale.filter((items) => items.price < search);
-    console.log(forSale);
+    const sort = test.filter((items) => {
+      return items.price < search;
+    });
+    console.log(sort);
     forSaleSort(sort);
   };
+
+  /*  useEffect(() => {
+    forSaleSort();
+  }, [handelSubmit]); */
 
   return (
     <Container className="d-flex ">

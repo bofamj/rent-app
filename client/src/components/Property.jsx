@@ -9,11 +9,13 @@ import Serch from "./Serch";
 
 const Property = () => {
   const [forSale, setForSale] = useState([]);
+  const [test, setTest] = useState([]);
 
   //*fetching ret and sale propertiess form the raped api
   const fetchEaleProperty = async () => {
     const forSale = await queryData(`${generalUrl}/sale`);
     setForSale(forSale);
+    setTest(forSale);
   };
   console.log(forSale);
   useEffect(() => {
@@ -27,7 +29,7 @@ const Property = () => {
         PROPERTY FOR <span className="page-text-span ">SALE</span>
       </h1>
       <Container>
-        <Serch forSale={forSale} forSaleSort={setForSale} />
+        <Serch forSale={forSale} forSaleSort={setForSale} test={test} />
       </Container>
       <Container lg={3} className="mt-2 d-flex flex-wrap">
         {" "}
