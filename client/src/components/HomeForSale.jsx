@@ -8,7 +8,7 @@ const HomeForSale = () => {
     <Container className="h-75 text-dark d-flex container-md">
       <Row className="  d-flex align-items-center mb-5">
         <Col>
-          <h2>Need To Bay a Home?</h2>
+          <h2>Need To Buy a Home?</h2>
           <p>
             Find a lender who can offer competitive mortgage rates and help you
             with pre-approval.

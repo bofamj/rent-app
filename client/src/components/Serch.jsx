@@ -10,41 +10,68 @@ const Serch = ({ forSale, forSaleSort, test }) => {
   const [sort, setSort] = useState(filterData[2].items);
   const [roomsMin, setRoomsMin] = useState(filterData[3].items);
   const [bathsMin, setBathsMin] = useState(filterData[4].items);
-  // const [test, setTest] = useState([]);
-  const [search, setSearch] = useState("");
-  //setTest(forSale)
+  const [search, setSearch] = useState({
+    minPrice: "",
+    maxPrice: "",
+    roomsMin: "",
+    bathsMin: "",
+  });
+  const handelChange = (e) => {
+    setSearch((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
   const handelSubmit = () => {
-    console.log(search);
-
-    const sort = test.filter((items) => {
-      return items.price < search;
-    });
-    console.log(sort);
-    forSaleSort(sort);
+    let updatedList = test;
+    //console.log(search.roomsMin);
+    if (maxPrice) {
+      updatedList = updatedList.filter(
+        (items) => items.price < search.maxPrice
+      );
+      console.log(updatedList);
+    }
+    if (roomsMin) {
+      updatedList = updatedList.filter(
+        (items) => items.rooms == search.roomsMin
+      );
+    }
+    if (bathsMin) {
+      updatedList = updatedList.filter(
+        (items) => items.baths == search.bathsMin
+      );
+    }
+    forSaleSort(updatedList);
   };
 
-  /*  useEffect(() => {
-    forSaleSort();
-  }, [handelSubmit]); */
+  useEffect(() => {
+    handelSubmit();
+  }, [roomsMin, maxPrice]);
 
   return (
     <Container className="d-flex ">
-      <Form.Select className="me-1" aria-label="Default select example">
+      <Form.Select
+        className="me-1"
+        aria-label="Default select example"
+        name={filterData[0].queryName}
+        onChange={handelChange}
+      >
         <option>Min Price(USD)</option>
         {minPrice.map((item, index) => (
           <option key={index} value={item.value}>
-            {item.value}
+            {item.name}
           </option>
         ))}
       </Form.Select>
       <Form.Select
         className="me-1"
         aria-label="Default select example"
-        onChange={(e) => setSearch(e.target.value)}
+        name={filterData[1].queryName}
+        onChange={handelChange}
       >
         <option>Max Price(USD)</option>
         {maxPrice.map((item, index) => (
-          <option key={index} value={item.value}>
+          <option key={index} value={item.value} name={item.name}>
             {item.name}
           </option>
         ))}
@@ -57,7 +84,12 @@ const Serch = ({ forSale, forSaleSort, test }) => {
           </option>
         ))}
       </Form.Select>
-      <Form.Select className="me-1" aria-label="Default select example">
+      <Form.Select
+        className="me-1"
+        aria-label="Default select example"
+        name={filterData[3].queryName}
+        onChange={handelChange}
+      >
         <option>Rooms</option>
         {roomsMin.map((item, index) => (
           <option key={index} value={item.name}>
@@ -65,7 +97,11 @@ const Serch = ({ forSale, forSaleSort, test }) => {
           </option>
         ))}
       </Form.Select>
-      <Form.Select aria-label="Default select example">
+      <Form.Select
+        aria-label="Default select example"
+        name={filterData[4].queryName}
+        onChange={handelChange}
+      >
         <option>Baths</option>
         {bathsMin.map((item, index) => (
           <option key={index} value={item.name}>
