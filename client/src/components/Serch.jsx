@@ -16,12 +16,15 @@ const Serch = ({ forSale, forSaleSort, test }) => {
     roomsMin: "",
     bathsMin: "",
   });
+  const [sortName, setSortName] = useState(sort.map((item) => item.name));
+  //console.log(sortName);
   const handelChange = (e) => {
     setSearch((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
+
   const handelSubmit = () => {
     let updatedList = test;
     //console.log(search.roomsMin);
@@ -30,6 +33,9 @@ const Serch = ({ forSale, forSaleSort, test }) => {
         (items) => items.price < search.maxPrice
       );
       console.log(updatedList);
+    }
+    if (maxPrice.name) {
+      updatedList = test;
     }
     if (roomsMin) {
       updatedList = updatedList.filter(
@@ -40,6 +46,11 @@ const Serch = ({ forSale, forSaleSort, test }) => {
       updatedList = updatedList.filter(
         (items) => items.baths == search.bathsMin
       );
+    }
+    if (sortName[0]) {
+      updatedList = updatedList.sort(function (a, b) {
+        return b.price - a.price;
+      });
     }
     forSaleSort(updatedList);
   };
