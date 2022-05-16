@@ -34,7 +34,11 @@ const Property = () => {
       <Container lg={3} className="mt-2 d-flex flex-wrap">
         {" "}
         {forSale.map((prosel) => (
-          <Link className="red-mor-link" to={`/${prosel.externalID}`}>
+          <Link
+            className="red-mor-link"
+            to={`/${prosel.externalID}`}
+            key={prosel.id}
+          >
             <PropertyLayout key={prosel.id} prosel={prosel} />
           </Link>
         ))}{" "}

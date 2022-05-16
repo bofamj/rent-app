@@ -17,47 +17,58 @@ const Serch = ({ forSale, forSaleSort, test }) => {
     bathsMin: "",
   });
   const [sortName, setSortName] = useState(sort.map((item) => item.name));
+  const [name, setName] = useState([]);
+
   //console.log(sortName);
   const handelChange = (e) => {
+    console.log(e.target);
     setSearch((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
-
   const handelSubmit = () => {
     let updatedList = test;
-    //console.log(search.roomsMin);
     if (maxPrice) {
       updatedList = updatedList.filter(
         (items) => items.price < search.maxPrice
       );
-      console.log(updatedList);
+
+      forSaleSort(updatedList);
     }
+
     if (maxPrice.name) {
       updatedList = test;
     }
+
     if (roomsMin) {
       updatedList = updatedList.filter(
         (items) => items.rooms == search.roomsMin
       );
+      if (updatedList.length > 0) {
+        forSaleSort(updatedList);
+      } else {
+        return;
+      }
     }
     if (bathsMin) {
       updatedList = updatedList.filter(
         (items) => items.baths == search.bathsMin
       );
+      forSaleSort(updatedList);
     }
-    if (sortName[0]) {
+    console.log(updatedList);
+    /* if (sortName[0]) {
       updatedList = updatedList.sort(function (a, b) {
         return b.price - a.price;
       });
-    }
-    forSaleSort(updatedList);
-  };
+    } */
 
+    //forSaleSort(updatedList);
+  };
   useEffect(() => {
     handelSubmit();
-  }, [roomsMin, maxPrice]);
+  }, [search]);
 
   return (
     <Container className="d-flex ">
@@ -120,9 +131,9 @@ const Serch = ({ forSale, forSaleSort, test }) => {
           </option>
         ))}
       </Form.Select>
-      <Button type="button" className="btn" onClick={handelSubmit}>
+      {/* <Button type="button" className="btn" onClick={handelSubmit}>
         Submit
-      </Button>
+      </Button> */}
     </Container>
   );
 };
