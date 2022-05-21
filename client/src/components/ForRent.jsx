@@ -4,19 +4,32 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { generalUrl, queryData } from "../utils/queryApi";
 import ForRentLayout from "../page/forRentLayout";
+import Loading from "./Loading";
 
 const ForRent = () => {
   const [forRent, setForRent] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   //*fetching ret  form the raped api
   const fetchRentProperty = async () => {
+    setLoading(true);
     const forRent = await queryData(`${generalUrl}/rent`);
+    setLoading(false);
     setForRent(forRent);
   };
 
   useEffect(() => {
     fetchRentProperty();
   }, []);
+
+  if (loading) {
+    return (
+      <>
+        <Loading />
+      </>
+    );
+  }
+
   return (
     <>
       <h1 className="m-2 d-flex justify-content-center page-text">

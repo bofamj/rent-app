@@ -50,7 +50,11 @@ const DetailsForRent = () => {
   } = details;
 
   if (isLoading) {
-    return <Loading />;
+    return (
+      <>
+        <Loading />
+      </>
+    );
   }
 
   //console.log({ ...geography });

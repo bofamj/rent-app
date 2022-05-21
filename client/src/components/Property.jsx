@@ -6,21 +6,32 @@ import { generalUrl, queryData } from "../utils/queryApi";
 import PropertyLayout from "./../page/PropertyLayout";
 import { Link } from "react-router-dom";
 import Serch from "./Serch";
+import Loading from "./Loading";
 
 const Property = () => {
   const [forSale, setForSale] = useState([]);
   const [test, setTest] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   //*fetching ret and sale propertiess form the raped api
   const fetchEaleProperty = async () => {
+    setLoading(true);
     const forSale = await queryData(`${generalUrl}/sale`);
+    setLoading(false);
     setForSale(forSale);
     setTest(forSale);
   };
-  console.log(forSale);
   useEffect(() => {
     fetchEaleProperty();
   }, []);
+
+  if (loading) {
+    return (
+      <>
+        <Loading />
+      </>
+    );
+  }
 
   return (
     <>
