@@ -29,42 +29,63 @@ const Serch = ({ forSale, forSaleSort, test }) => {
   };
   const handelSubmit = () => {
     let updatedList = test;
-    if (maxPrice) {
+
+    //*filter by max price
+    if (search.maxPrice == "all") {
+      updatedList = test;
+      //forSaleSort(updatedList);
+      console.log(updatedList);
+    }
+    if (search.maxPrice !== "") {
       updatedList = updatedList.filter(
         (items) => items.price < search.maxPrice
       );
-
       forSaleSort(updatedList);
     }
 
-    if (maxPrice.name) {
-      updatedList = test;
-    }
-
-    if (roomsMin) {
+    //*filter by roms
+    if (search.roomsMin == "") {
+      forSaleSort(updatedList);
+    } else {
       updatedList = updatedList.filter(
         (items) => items.rooms == search.roomsMin
       );
-      if (updatedList.length > 0) {
-        forSaleSort(updatedList);
-      } else {
-        return;
-      }
+      forSaleSort(updatedList);
     }
-    if (bathsMin) {
+
+    //*filter by bath rome
+    if (search.bathsMin == "") {
+      forSaleSort(updatedList);
+    } else {
       updatedList = updatedList.filter(
         (items) => items.baths == search.bathsMin
       );
       forSaleSort(updatedList);
+      console.log(updatedList);
     }
-    console.log(updatedList);
+    //console.log(updatedList);
     /* if (sortName[0]) {
       updatedList = updatedList.sort(function (a, b) {
         return b.price - a.price;
       });
     } */
-
+    /* if (updatedList.length > 0) {
+        forSaleSort(updatedList);
+      } else {
+        return;
+      } 
+    }*/
     //forSaleSort(updatedList);
+  };
+
+  const handelReset = () => {
+    forSaleSort(test);
+    setSearch({
+      minPrice: "",
+      maxPrice: "",
+      roomsMin: "",
+      bathsMin: "",
+    });
   };
   useEffect(() => {
     handelSubmit();
@@ -131,9 +152,9 @@ const Serch = ({ forSale, forSaleSort, test }) => {
           </option>
         ))}
       </Form.Select>
-      {/* <Button type="button" className="btn" onClick={handelSubmit}>
-        Submit
-      </Button> */}
+      <Button type="button" className="btn" onClick={handelReset}>
+        reset
+      </Button>
     </Container>
   );
 };

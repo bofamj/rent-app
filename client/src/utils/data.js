@@ -1,6 +1,7 @@
 export const filterData = [
   {
     items: [
+      { name: "all", value: "all" },
       { name: "10,000", value: "10000" },
       { name: "20,000", value: "20000" },
       { name: "30,000", value: "30000" },
@@ -14,6 +15,7 @@ export const filterData = [
   },
   {
     items: [
+      { name: "all", value: "all" },
       { name: "500,000", value: "500000" },
       { name: "1000,000", value: "1000000" },
       { name: "1500,000", value: "1500,000" },
@@ -55,6 +57,7 @@ export const filterData = [
   },
   {
     items: [
+      { name: "all", value: "all" },
       { name: "1", value: "1" },
       { name: "2", value: "2" },
       { name: "3", value: "3" },
@@ -71,6 +74,7 @@ export const filterData = [
   },
   {
     items: [
+      { name: "all", value: "all" },
       { name: "1", value: "1" },
       { name: "2", value: "2" },
       { name: "3", value: "3" },
