@@ -15,13 +15,14 @@ const Serch = ({ forSale, forSaleSort, test }) => {
     maxPrice: "",
     roomsMin: "",
     bathsMin: "",
+    sort: "",
   });
   const [sortName, setSortName] = useState(sort.map((item) => item.name));
   const [name, setName] = useState([]);
 
   //console.log(sortName);
   const handelChange = (e) => {
-    console.log(e.target);
+    // console.log(e.target);
     setSearch((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -29,13 +30,13 @@ const Serch = ({ forSale, forSaleSort, test }) => {
   };
   const handelSubmit = () => {
     let updatedList = test;
-
-    //*filter by max price
-    if (search.maxPrice == "all") {
-      updatedList = test;
-      //forSaleSort(updatedList);
-      console.log(updatedList);
+    //*sort by highest  price
+    if (search.sort === sortName[1]) {
+      updatedList = updatedList.sort((a, b) => (a.price > b.price ? -1 : 1));
+      forSaleSort(updatedList);
     }
+    //*filter by max price
+
     if (search.maxPrice !== "") {
       updatedList = updatedList.filter(
         (items) => items.price < search.maxPrice
@@ -63,17 +64,18 @@ const Serch = ({ forSale, forSaleSort, test }) => {
       forSaleSort(updatedList);
       console.log(updatedList);
     }
-    //console.log(updatedList);
-    /* if (sortName[0]) {
-      updatedList = updatedList.sort(function (a, b) {
-        return b.price - a.price;
-      });
-    } */
+
+    //*sort by lowest  price
+    if (search.sort === sortName[0]) {
+      updatedList = updatedList.sort((a, b) => (a.price < b.price ? 1 : -1));
+      forSaleSort(updatedList);
+    }
+
     /* if (updatedList.length > 0) {
-        forSaleSort(updatedList);
+        /* forSaleSort(updatedList);
       } else {
         return;
-      } 
+      }  
     }*/
     //forSaleSort(updatedList);
   };
@@ -119,7 +121,12 @@ const Serch = ({ forSale, forSaleSort, test }) => {
           </option>
         ))}
       </Form.Select>
-      <Form.Select className="me-1" aria-label="Default select example">
+      <Form.Select
+        className="me-1"
+        aria-label="Default select example"
+        name={filterData[2].queryName}
+        onChange={handelChange}
+      >
         <option>Sort</option>
         {sort.map((item, index) => (
           <option key={index} value={item.name}>
@@ -152,8 +159,8 @@ const Serch = ({ forSale, forSaleSort, test }) => {
           </option>
         ))}
       </Form.Select>
-      <Button type="button" className="btn" onClick={handelReset}>
-        reset
+      <Button type="button" className="btn p-2" onClick={handelReset}>
+        Reset
       </Button>
     </Container>
   );
