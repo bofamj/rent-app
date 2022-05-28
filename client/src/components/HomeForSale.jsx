@@ -18,7 +18,7 @@ const HomeForSale = () => {
           </button>
         </Col>
         <Col>
-          <img src={froSalImg} className="img-fluid " alt="..." />
+          <img src={froSalImg} className="img-fluid rounded-3 " alt="..." />
         </Col>
       </Row>
     </Container>

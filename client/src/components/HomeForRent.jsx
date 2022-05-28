@@ -5,11 +5,11 @@ import forRentImg from "../assets/haus_real_estate_rent.jpg";
 
 const HomeForRent = () => {
   return (
-    <div className="for-rent-cont pt-5">
-      <Container className="h-75 text-dark d-flex  ">
-        <Row className="  d-flex align-items-center mb-5">
+    <div className="for-rent-cont pt-5 ">
+      <Container className="h-75  d-flex  ">
+        <Row className="  d-flex align-items-center mb-5 ">
           <Col>
-            <img src={forRentImg} className="img-fluid " alt="..." />
+            <img src={forRentImg} className="img-fluid rounded-3" alt="..." />
           </Col>
           <Col>
             <h2>Need To Rent a Home?</h2>

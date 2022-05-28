@@ -45,8 +45,8 @@ export const filterData = [
   },
   {
     items: [
-      { name: "Lowest Price", value: "price-asc" },
-      { name: "Highest Price", value: "price-des" },
+      { name: "Lowest Price", value: "Lowest Price" },
+      { name: "Highest Price", value: "Highest Price" },
       { name: "Newest", value: "date-asc" },
       { name: "Oldest", value: "date-desc" },
       { name: "Verified", value: "verified-score" },

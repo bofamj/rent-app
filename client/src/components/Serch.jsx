@@ -28,12 +28,16 @@ const Serch = ({ forSale, forSaleSort, test }) => {
       [e.target.name]: e.target.value,
     }));
   };
+
   const handelSubmit = () => {
     let updatedList = test;
-    //*sort by highest  price
-    if (search.sort === sortName[1]) {
-      updatedList = updatedList.sort((a, b) => (a.price > b.price ? -1 : 1));
-      forSaleSort(updatedList);
+
+    //*sort by lowest  price
+
+    if (search.sort == "Highest Price") {
+      updatedList.sort(function (a, b) {
+        return a.price - b.price;
+      });
     }
     //*filter by max price
 
@@ -61,13 +65,6 @@ const Serch = ({ forSale, forSaleSort, test }) => {
       updatedList = updatedList.filter(
         (items) => items.baths == search.bathsMin
       );
-      forSaleSort(updatedList);
-      console.log(updatedList);
-    }
-
-    //*sort by lowest  price
-    if (search.sort === sortName[0]) {
-      updatedList = updatedList.sort((a, b) => (a.price < b.price ? 1 : -1));
       forSaleSort(updatedList);
     }
 
@@ -167,3 +164,21 @@ const Serch = ({ forSale, forSaleSort, test }) => {
 };
 
 export default Serch;
+/*//Output: [500,44,32,15,13,5,1]
+    /* updatedList.sort(function (a, b) {
+      if (search.sort == "Lowest Price") {
+        // Price is only important when cities are the same
+        return b.price - a.price;
+      } /* else if (search.sort == "Highest Price") {
+        // Price is only important when cities are the same
+        return a.price - b.price;
+      } 
+      return a.price - b.price;
+    }); 
+    /* if (search.sort == "Lowest Price") {
+      //updatedList.sort((a, b) => (a.price < b.price ? 1 : -1));
+      updatedList.sort(function (a, b) {
+        return b.price - a.price;
+      });
+    }
+   */

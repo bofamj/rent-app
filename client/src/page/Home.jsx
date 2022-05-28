@@ -10,7 +10,7 @@ import HomeForRent from "../components/HomeForRent";
 const Home = () => {
   return (
     <>
-      <div className=" heder">
+      <div className=" heder w-100">
         <Container className="h-100  d-flex align-items-center justify-content-center hero heder">
           <Row xs={1} md={2} className=" h-75 w-100  align-items-center">
             <Col xs={{ order: "last" }}>
@@ -20,19 +20,19 @@ const Home = () => {
             </Col>
             <Col xs={{ order: "last" }} className="hero-img-container">
               <img src={blob} className="blob " />
-              <img src={house} className="image" />
+              <img src={house} className="image rounded-3" />
             </Col>
           </Row>
         </Container>
       </div>
-      <Container>
+      <div className=" w-100">
         <div className="sale-hero-cont container-lg">
           <HomeForSale />
         </div>
         <div className="sale-hero-cont  w-100">
           <HomeForRent />
         </div>
-      </Container>
+      </div>
     </>
   );
 };
