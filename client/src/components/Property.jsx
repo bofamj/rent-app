@@ -39,7 +39,7 @@ const Property = () => {
       <h1 className="m-2 d-flex justify-content-center page-text">
         PROPERTY FOR <span className="page-text-span ">SALE</span>
       </h1>
-      <Container>
+      <Container lg={3} className="d-flex flex-wrap">
         <Serch forSale={forSale} forSaleSort={setForSale} test={test} />
       </Container>
       <Container lg={3} className="mt-2 d-flex flex-wrap">

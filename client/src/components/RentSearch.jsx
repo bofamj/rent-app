@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { filterData } from "../utils/data";
 
-const Serch = ({ forSale, forSaleSort, test }) => {
+const RentSearch = ({ forRent, forRentSort, forRentCopy }) => {
   const [minPrice, setMinPrice] = useState(filterData[0].items);
   const [maxPrice, setMaxPrice] = useState(filterData[1].items);
   const [sort, setSort] = useState(filterData[2].items);
@@ -30,7 +30,7 @@ const Serch = ({ forSale, forSaleSort, test }) => {
   };
 
   const handelSubmit = () => {
-    let updatedList = test;
+    let updatedList = forRentCopy;
 
     //*sort by lowest  price
 
@@ -41,44 +41,44 @@ const Serch = ({ forSale, forSaleSort, test }) => {
     }
     //*filter by max price
 
-    if (search.maxPrice !== "") {
+    if (search.minPrice !== "") {
       updatedList = updatedList.filter(
-        (items) => items.price < search.maxPrice
+        (items) => items.price < search.minPrice
       );
-      forSaleSort(updatedList);
+      forRentSort(updatedList);
     }
 
     //*filter by roms
     if (search.roomsMin == "") {
-      forSaleSort(updatedList);
+      forRentSort(updatedList);
     } else {
       updatedList = updatedList.filter(
         (items) => items.rooms == search.roomsMin
       );
-      forSaleSort(updatedList);
+      forRentSort(updatedList);
     }
 
     //*filter by bath rome
     if (search.bathsMin == "") {
-      forSaleSort(updatedList);
+      forRentSort(updatedList);
     } else {
       updatedList = updatedList.filter(
         (items) => items.baths == search.bathsMin
       );
-      forSaleSort(updatedList);
+      forRentSort(updatedList);
     }
 
     /* if (updatedList.length > 0) {
-        /* forSaleSort(updatedList);
-      } else {
-        return;
-      }  
-    }*/
+          /* forSaleSort(updatedList);
+        } else {
+          return;
+        }  
+      }*/
     //forSaleSort(updatedList);
   };
 
   const handelReset = () => {
-    forSaleSort(test);
+    forRentSort(forRentCopy);
     setSearch({
       minPrice: "",
       maxPrice: "",
@@ -95,16 +95,17 @@ const Serch = ({ forSale, forSaleSort, test }) => {
       <Form.Select
         className="me-1"
         aria-label="Default select example"
-        name={filterData[1].queryName}
+        name={filterData[0].queryName}
         onChange={handelChange}
       >
-        <option>Max Price(USD)</option>
-        {maxPrice.map((item, index) => (
-          <option key={index} value={item.value} name={item.name}>
+        <option>Min Price(USD)</option>
+        {minPrice.map((item, index) => (
+          <option key={index} value={item.value}>
             {item.name}
           </option>
         ))}
       </Form.Select>
+
       <Form.Select
         className="me-1"
         aria-label="Default select example"
@@ -150,22 +151,4 @@ const Serch = ({ forSale, forSaleSort, test }) => {
   );
 };
 
-export default Serch;
-/*//Output: [500,44,32,15,13,5,1]
-    /* updatedList.sort(function (a, b) {
-      if (search.sort == "Lowest Price") {
-        // Price is only important when cities are the same
-        return b.price - a.price;
-      } /* else if (search.sort == "Highest Price") {
-        // Price is only important when cities are the same
-        return a.price - b.price;
-      } 
-      return a.price - b.price;
-    }); 
-    /* if (search.sort == "Lowest Price") {
-      //updatedList.sort((a, b) => (a.price < b.price ? 1 : -1));
-      updatedList.sort(function (a, b) {
-        return b.price - a.price;
-      });
-    }
-   */
+export default RentSearch;
