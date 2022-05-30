@@ -1,5 +1,6 @@
 import { Row, Container, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 import "../App.css";
 import forRentImg from "../assets/haus_real_estate_rent.jpg";
 
@@ -17,9 +18,11 @@ const HomeForRent = () => {
               Find a lender who can offer competitive mortgage rates and help
               you with pre-approval.
             </p>
-            <button type="button" className="btn btn-danger px-5">
-              Find A Home To Rent
-            </button>
+            <Link to="/property-rent" className="link p-2">
+              <button type="button" className="btn btn-danger px-5">
+                Find A Home To Rent
+              </button>
+            </Link>
           </Col>
         </Row>
       </Container>

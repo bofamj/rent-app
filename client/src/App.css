@@ -82,19 +82,20 @@
 .image{
   position: relative;
   z-index: 2;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
   
 }
 .blob{
   width:1050px;
   position:absolute;
-  top:-430px;
+  top:-370px;
   left:-327px;
   z-index: 1;
 }
 .hero-text{
   position:relative;
   z-index: 3;
+  letter-spacing: 5px;
 }
 .sale-hero-cont{
   margin-top:150px;

@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import HomeForSale from "../components/HomeForSale";
 
 import "../App.css";
-import house from "../assets/26801-6-house-transparent.png";
+import house from "../assets/house-png-167.png";
 import blob from "../assets/blob-4.svg";
 import HomeForRent from "../components/HomeForRent";
 const Home = () => {
@@ -14,13 +14,15 @@ const Home = () => {
         <Container className="h-100  d-flex align-items-center justify-content-center hero heder">
           <Row xs={1} md={2} className=" h-75 w-100  align-items-center">
             <Col xs={{ order: "last" }}>
-              <h1 className="text-uppercase fs-1 hero-text">
-                rel estate home page
+              <h1 className=" font-weight-light lh-sm hero-text w-75">
+                Your Dream
+                <br /> House is Waiting
+                <br /> For You
               </h1>
             </Col>
             <Col xs={{ order: "last" }} className="hero-img-container">
               <img src={blob} className="blob " />
-              <img src={house} className="image rounded-3" />
+              <img src={house} className="image rounded-3" width="100%" />
             </Col>
           </Row>
         </Container>

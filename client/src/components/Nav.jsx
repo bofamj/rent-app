@@ -13,8 +13,10 @@ const Nav = () => {
     <Navbar bg="dark" variant="dark" expand={false} className="sticky-top">
       <Container>
         <Navbar.Brand className="d-flex align-items-center">
-          <img src={logo} className="logo-img me-2" />
-          <h3 className="logo">Rent</h3>
+          <Link to="/" className="link d-flex align-items-center text-white">
+            <img src={logo} className="logo-img me-2" />
+            <h3 className="logo">Rent</h3>
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="offcanvasNavbar" />
         <Navbar.Offcanvas
