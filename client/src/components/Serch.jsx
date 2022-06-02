@@ -32,13 +32,6 @@ const Serch = ({ forSale, forSaleSort, test }) => {
   const handelSubmit = () => {
     let updatedList = test;
 
-    //*sort by lowest  price
-
-    if (search.sort == "Highest Price") {
-      updatedList.sort(function (a, b) {
-        return a.price - b.price;
-      });
-    }
     //*filter by max price
 
     if (search.maxPrice !== "") {
@@ -77,6 +70,25 @@ const Serch = ({ forSale, forSaleSort, test }) => {
     //forSaleSort(updatedList);
   };
 
+  const handelSort = () => {
+    let updatedList = test;
+
+    //*sort by highest  price
+
+    if (search.sort == "Highest Price") {
+      updatedList.sort(function (a, b) {
+        return b.price - a.price;
+      });
+    }
+    //*sort by lowest  price
+
+    if (search.sort == "Lowest Price") {
+      updatedList.sort(function (a, b) {
+        return a.price - b.price;
+      });
+    }
+  };
+
   const handelReset = () => {
     forSaleSort(test);
     setSearch({
@@ -87,6 +99,7 @@ const Serch = ({ forSale, forSaleSort, test }) => {
     });
   };
   useEffect(() => {
+    handelSort();
     handelSubmit();
   }, [search]);
 

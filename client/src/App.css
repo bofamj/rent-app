@@ -82,13 +82,14 @@
 .image{
   position: relative;
   z-index: 2;
+  
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
   
 }
 .blob{
   width:1050px;
   position:absolute;
-  top:-370px;
+  top:-410px;
   left:-327px;
   z-index: 1;
 }
@@ -96,7 +97,9 @@
   position:relative;
   z-index: 3;
   letter-spacing: 5px;
+  color:rgb(205, 190, 120)
 }
+
 .sale-hero-cont{
   margin-top:150px;
   width: 100%;
@@ -129,4 +132,10 @@
 /*description page*/
 .description{
   line-height: 27px;
+}
+
+
+.footer{
+  width: 100%;
+  height:50Px
 }

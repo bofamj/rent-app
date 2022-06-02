@@ -32,13 +32,6 @@ const RentSearch = ({ forRent, forRentSort, forRentCopy }) => {
   const handelSubmit = () => {
     let updatedList = forRentCopy;
 
-    //*sort by lowest  price
-
-    if (search.sort == "Highest Price") {
-      updatedList.sort(function (a, b) {
-        return a.price - b.price;
-      });
-    }
     //*filter by max price
 
     if (search.minPrice !== "") {
@@ -77,6 +70,25 @@ const RentSearch = ({ forRent, forRentSort, forRentCopy }) => {
     //forSaleSort(updatedList);
   };
 
+  const handelSort = () => {
+    let updatedList = test;
+
+    //*sort by highest  price
+
+    if (search.sort == "Highest Price") {
+      updatedList.sort(function (a, b) {
+        return b.price - a.price;
+      });
+    }
+    //*sort by lowest  price
+
+    if (search.sort == "Lowest Price") {
+      updatedList.sort(function (a, b) {
+        return a.price - b.price;
+      });
+    }
+  };
+
   const handelReset = () => {
     forRentSort(forRentCopy);
     setSearch({
@@ -87,6 +99,7 @@ const RentSearch = ({ forRent, forRentSort, forRentCopy }) => {
     });
   };
   useEffect(() => {
+    handelReset();
     handelSubmit();
   }, [search]);
 
