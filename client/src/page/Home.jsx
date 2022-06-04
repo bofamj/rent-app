@@ -5,7 +5,7 @@ import HomeForSale from "../components/HomeForSale";
 
 import "../App.css";
 import house from "../assets/house-png-166 (2).png";
-import blob from "../assets/blob-4.svg";
+import blob from "../assets/blob-5.svg";
 import HomeForRent from "../components/HomeForRent";
 
 const Home = () => {
@@ -22,7 +22,7 @@ const Home = () => {
               </h1>
             </Col>
             <Col xs={{ order: "last" }} className="hero-img-container">
-              {/* <img src={blob} className="blob " /> */}
+              <img src={blob} className="blob " />
               <img src={house} className="image rounded-3" width="100%" />
             </Col>
           </Row>

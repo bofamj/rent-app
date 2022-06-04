@@ -87,17 +87,21 @@
   
 }
 .blob{
-  width:1050px;
+  width:1570px;
   position:absolute;
-  top:-410px;
-  left:-327px;
+  top:-360px;
+  left:-560px;
   z-index: 1;
 }
 .hero-text{
-  position:relative;
+  position:absolute;
+  font-family: 'Josefin Sans', sans-serif;
+  top:280px;
+  left:190px;
+  font-size:50px;
   z-index: 3;
   letter-spacing: 5px;
-  color:rgb(205, 190, 120)
+  color:rgb(255, 255, 255)
 }
 
 .sale-hero-cont{

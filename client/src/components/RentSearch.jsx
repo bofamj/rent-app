@@ -60,18 +60,10 @@ const RentSearch = ({ forRent, forRentSort, forRentCopy }) => {
       );
       forRentSort(updatedList);
     }
-
-    /* if (updatedList.length > 0) {
-          /* forSaleSort(updatedList);
-        } else {
-          return;
-        }  
-      }*/
-    //forSaleSort(updatedList);
   };
 
   const handelSort = () => {
-    let updatedList = test;
+    let updatedList = forRentCopy;
 
     //*sort by highest  price
 
@@ -99,7 +91,7 @@ const RentSearch = ({ forRent, forRentSort, forRentCopy }) => {
     });
   };
   useEffect(() => {
-    handelReset();
+    handelSort();
     handelSubmit();
   }, [search]);
 
