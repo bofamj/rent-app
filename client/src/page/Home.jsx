@@ -32,8 +32,68 @@ const Home = () => {
 
   return (
     <>
-      <div className=" heder w-100">
-        <Container className="h-100  d-flex align-items-center justify-content-center hero heder">
+      <div className=" bg-dark text-light text-center text-sm-start py-5 ">
+        <Container>
+          <Row className="d-flex justify-content align-items-center">
+            <Col xs={{ order: "last" }}>
+              <motion.div
+                variants={container}
+                initial="hidden"
+                animate="visible"
+              >
+                <motion.h1
+                  variants={item}
+                  /* className=" font-weight-light lh-sm hero-text w-75" */
+                  className=" display-4"
+                >
+                  Your Dream
+                  <br /> House is Waiting
+                  <br />
+                  For You
+                </motion.h1>
+              </motion.div>
+            </Col>
+            <Col
+              xs={{ order: "last" }}
+              /* className="hero-img-container d-flex align-items-center justify-content-end d-none d-sm-block " */
+              className="d-none d-sm-block "
+            >
+              <motion.div
+                variants={container}
+                initial="hidden"
+                animate="visible"
+              >
+                {/* <img src={blob} className="" /> */}
+                <motion.img
+                  src={house}
+                  className=" rounded-3  w-100  img-fluid "
+                  variants={item}
+                />
+              </motion.div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+      {/* <div className=" w-100">
+        <motion.div variants={container} initial="hidden" animate="visible">
+          <div className="sale-hero-cont container-lg">
+            <HomeForSale />
+          </div>
+        </motion.div>
+        <div className="sale-hero-cont  w-100">
+          <motion.div variants={container} initial="hidden" animate="visible">
+            <HomeForRent />
+          </motion.div>
+        </div>
+      </div> */}
+    </>
+  );
+};
+
+export default Home;
+
+/*<div className=" heder w-100">
+        <Container className=" d-flex py-5 hero heder">
           <Row xs={1} md={2} className=" h-75 w-100  align-items-center">
             <Col xs={{ order: "last" }}>
               <motion.div
@@ -47,23 +107,24 @@ const Home = () => {
                 >
                   Your Dream
                   <br /> House is Waiting
-                  <br /> For You
+                  <br className="text-info " />
+                  For You
                 </motion.h1>
               </motion.div>
             </Col>
             <Col
               xs={{ order: "last" }}
-              className="hero-img-container d-flex align-items-center justify-content-end "
+              className="hero-img-container d-flex align-items-center justify-content-end d-none d-sm-block "
             >
               <motion.div
                 variants={container}
                 initial="hidden"
                 animate="visible"
               >
-                <img src={blob} className="blob " />
+                <img src={blob} className="blob mt-5 " />
                 <motion.img
                   src={house}
-                  className="image rounded-3 pe-3 w-100"
+                  className=" rounded-3 image w-100 mt-5 img-fluid "
                   variants={item}
                 />
               </motion.div>
@@ -82,9 +143,4 @@ const Home = () => {
             <HomeForRent />
           </motion.div>
         </div>
-      </div>
-    </>
-  );
-};
-
-export default Home;
+      </div> */
