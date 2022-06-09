@@ -74,18 +74,19 @@ const Home = () => {
           </Row>
         </Container>
       </div>
-      {/* <div className=" w-100">
-        <motion.div variants={container} initial="hidden" animate="visible">
-          <div className="sale-hero-cont container-lg">
-            <HomeForSale />
-          </div>
-        </motion.div>
-        <div className="sale-hero-cont  w-100">
-          <motion.div variants={container} initial="hidden" animate="visible">
-            <HomeForRent />
-          </motion.div>
-        </div>
-      </div> */}
+      {/* <div className=" w-100"> */}
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        className=""
+      >
+        <HomeForSale />
+      </motion.div>
+
+      <motion.div variants={container} initial="hidden" animate="visible">
+        <HomeForRent />
+      </motion.div>
     </>
   );
 };
