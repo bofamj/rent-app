@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, option, Container, Button } from "react-bootstrap";
+import { Form, option, Container, Button, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { filterData } from "../utils/data";
@@ -104,61 +104,73 @@ const Serch = ({ forSale, forSaleSort, test }) => {
   }, [search]);
 
   return (
-    <Container className="d-flex ">
-      <Form.Select
-        className="me-1"
-        aria-label="Default select example"
-        name={filterData[1].queryName}
-        onChange={handelChange}
-      >
-        <option>Max Price(USD)</option>
-        {maxPrice.map((item, index) => (
-          <option key={index} value={item.value} name={item.name}>
-            {item.name}
-          </option>
-        ))}
-      </Form.Select>
-      <Form.Select
-        className="me-1"
-        aria-label="Default select example"
-        name={filterData[2].queryName}
-        onChange={handelChange}
-      >
-        <option>Sort</option>
-        {sort.map((item, index) => (
-          <option key={index} value={item.name}>
-            {item.name}
-          </option>
-        ))}
-      </Form.Select>
-      <Form.Select
-        className="me-1"
-        aria-label="Default select example"
-        name={filterData[3].queryName}
-        onChange={handelChange}
-      >
-        <option>Rooms</option>
-        {roomsMin.map((item, index) => (
-          <option key={index} value={item.name}>
-            {item.name}
-          </option>
-        ))}
-      </Form.Select>
-      <Form.Select
-        aria-label="Default select example"
-        name={filterData[4].queryName}
-        onChange={handelChange}
-      >
-        <option>Baths</option>
-        {bathsMin.map((item, index) => (
-          <option key={index} value={item.name}>
-            {item.name}
-          </option>
-        ))}
-      </Form.Select>
-      <Button type="button" className="btn p-2" onClick={handelReset}>
-        Reset
-      </Button>
+    <Container className="d-flex f justify-md-content-center align-items-center   ">
+      <Row className="d-flex flex-wrap justify-content-center align-items-center  pt-2 ">
+        <Col>
+          <Form.Select
+            className="me-1"
+            aria-label="Default select example"
+            name={filterData[1].queryName}
+            onChange={handelChange}
+          >
+            <option>Max Price(USD)</option>
+            {maxPrice.map((item, index) => (
+              <option key={index} value={item.value} name={item.name}>
+                {item.name}
+              </option>
+            ))}
+          </Form.Select>
+        </Col>
+        <Col>
+          <Form.Select
+            className="me-1"
+            aria-label="Default select example"
+            name={filterData[2].queryName}
+            onChange={handelChange}
+          >
+            <option>Sort</option>
+            {sort.map((item, index) => (
+              <option key={index} value={item.name}>
+                {item.name}
+              </option>
+            ))}
+          </Form.Select>
+        </Col>
+        <Col>
+          <Form.Select
+            className="me-1"
+            aria-label="Default select example"
+            name={filterData[3].queryName}
+            onChange={handelChange}
+          >
+            <option>Rooms</option>
+            {roomsMin.map((item, index) => (
+              <option key={index} value={item.name}>
+                {item.name}
+              </option>
+            ))}
+          </Form.Select>
+        </Col>
+        <Col>
+          <Form.Select
+            aria-label="Default select example"
+            name={filterData[4].queryName}
+            onChange={handelChange}
+          >
+            <option>Baths</option>
+            {bathsMin.map((item, index) => (
+              <option key={index} value={item.name}>
+                {item.name}
+              </option>
+            ))}
+          </Form.Select>
+        </Col>
+        <Col className="   ">
+          <Button type="button" className="btn px-3   " onClick={handelReset}>
+            Reset
+          </Button>
+        </Col>
+      </Row>
     </Container>
   );
 };

@@ -45,7 +45,10 @@ const ForRent = () => {
           forRentCopy={forRentCopy}
         />
       </Container>
-      <Container lg={3} className="mt-2 d-flex flex-wrap">
+      <Container
+        fluid
+        className="mt-2 d-flex flex-wrap justify-content-center align-items-center "
+      >
         {forRent.map((prosel) => (
           <Link className="red-mor-link" to={`/${prosel.externalID}`}>
             <ForRentLayout key={prosel.id} prosel={prosel} />
