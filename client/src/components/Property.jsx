@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { motion, useAnimation } from "framer-motion";
 
 import { generalUrl, queryData } from "../utils/queryApi";
 import PropertyLayout from "./../page/PropertyLayout";
@@ -33,6 +34,11 @@ const Property = () => {
     );
   }
 
+  const boxVariant = {
+    visible: { opacity: 1, scale: 2 },
+    hidden: { opacity: 0, scale: 0 },
+  };
+
   return (
     <>
       {" "}
@@ -55,7 +61,7 @@ const Property = () => {
           >
             <PropertyLayout key={prosel.id} prosel={prosel} />
           </Link>
-        ))}{" "}
+        ))}
       </Container>
     </>
   );
