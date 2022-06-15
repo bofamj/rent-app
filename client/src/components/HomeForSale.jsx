@@ -12,6 +12,9 @@ const HomeForSale = () => {
         lg={2}
         className="justify-content-center align-items-center"
       >
+        <Col>
+          <img src={froSalImg} className="img-fluid rounded-3 " alt="..." />
+        </Col>
         <Col className="py-5">
           <h2>Need To Buy a Home?</h2>
           <p>
@@ -23,9 +26,6 @@ const HomeForSale = () => {
               Find your New Home
             </button>
           </Link>
-        </Col>
-        <Col>
-          <img src={froSalImg} className="img-fluid rounded-3 " alt="..." />
         </Col>
       </Row>
     </Container>

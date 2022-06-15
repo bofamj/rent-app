@@ -15,9 +15,6 @@ const HomeForRent = () => {
           className="justify-content-center align-items-center"
         >
           <Col className="py-3 ">
-            <img src={forRentImg} className="img-fluid rounded-3" alt="..." />
-          </Col>
-          <Col className="py-3 ">
             <h2>Need To Rent a Home?</h2>
             <p>
               Find a lender who can offer competitive mortgage rates and help
@@ -28,6 +25,9 @@ const HomeForRent = () => {
                 Find A Home To Rent
               </button>
             </Link>
+          </Col>
+          <Col className="py-3 ">
+            <img src={forRentImg} className="img-fluid rounded-3" alt="..." />
           </Col>
         </Row>
       </Container>

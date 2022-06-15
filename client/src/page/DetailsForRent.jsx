@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { withScriptjs, withGoogleMap } from "@react-google-maps/api";
+//import { withScriptjs, withGoogleMap } from "@react-google-maps/api";
 
-import GoogleMaps from "../utils/GoogleMaps";
+//import GoogleMaps from "../utils/GoogleMaps";
+import { MapContainer, TileLayer } from "react-leaflet";
 
 import { generaIdlUrl, queryIdData } from "../utils/queryApi";
 import ImageSrollbar from "../components/ScrollingMenu";
@@ -57,9 +58,11 @@ const DetailsForRent = () => {
     );
   }
 
-  //console.log({ ...geography });
-  //console.log(amenities);
-
+  const lat = "11.1271";
+  const lng = "79.1258";
+  const leatatut = !geography ? lat : geography.lat;
+  const lanatut = !geography ? lng : geography.lng;
+  console.log(leatatut, lanatut);
   return (
     <Container className="mt-5 w-75 mb-5">
       <Row>
@@ -101,13 +104,13 @@ const DetailsForRent = () => {
               <h4 className="text-dark">Purpose :</h4>
               <h5 className="  text-secondary px-2  mt-1">{purpose}</h5>
             </div>
-            <div className="d-flex justify-content-center align-items-center ps-5 ">
+            <Col className="d-flex justify-content-center align-items-center ps-5 ">
               {furnishingStatus && (
                 <h5 className=" ps-2 text-secondary w-50 d-flex justify-content-between align-items-center ">
                   {furnishingStatus}
                 </h5>
               )}
-            </div>
+            </Col>
           </div>
           <div className="d-flex justify-content-between align-items-start pe-2  w-100 ">
             <h4 className="text-dark ">Amenities:</h4>
@@ -118,9 +121,25 @@ const DetailsForRent = () => {
                 ))}
             </div>
           </div>
-          <div className="w-100 ">
-            <GoogleMaps {...geography} />
-          </div>
+          <Col className="w-100 h-100">
+            {/* <GoogleMaps {...geography} /> */}
+            <MapContainer
+              center={[leatatut, lanatut /* geography.lat, geography.lng */]}
+              zoom={11}
+              style={{
+                height: "calc(100vh - 12em)",
+                minHeight: "400px",
+                width: "100%",
+                minWidth: "200px",
+                boxSizing: "border-box",
+              }}
+            >
+              <TileLayer
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+            </MapContainer>
+          </Col>
         </Col>
       </Row>
     </Container>
